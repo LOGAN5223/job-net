@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job-net</title>
+</head>
+<body>
+<div class="background-cont">
+    <div class="profile-pad">
+        <h1 class="colored">Profile Set up</h1>
+        <p class="colored">Let's get a little info about You before we start</p>
+        <!--/*@thymesVar id="profiles" type="package com.logan.socialnetwork.model.Profiles"*/-->
+        <form method="POST" th:action="@{/preProfileSettings}" th:object="${profiles}" id="profileForm" class="loginForm">
+            <label for="username" class="colored lb">Your Name: </label>
+            <input type="text" id="username" th:field="*{userName}" class="log-label lb"/><br/>
+
+            <label for="surename" class="colored lb">Surename: </label>
+            <input type="text" id="surename" th:field="*{sureName}" class="log-label lb"/><br/>
+
+            <label for="biography" class="colored lb">About me: </label>
+            <input type="text" id="biography" th:field="*{biography}" class="log-label lb"/><br/>
+
+            <input type="submit" value="Done" class="log-button"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job-net</title>
+</head>
+<body>
+<!--/*@thymesVar id="profiles" type="package com.logan.socialnetwork.model.Profiles"*/-->
+<form method="GET" th:object="${profileData}">
+    <img th:src="*{profilePictureUrl}" alt="idi nahui">
+    <p th:text="*{userName}"></p>
+    <p th:text="*{sureName}"></p>
+    <p th:text="*{biography}"></p>
+    <p th:text="*{registrationDate}"></p>
+</form>
+</body>
+</html>

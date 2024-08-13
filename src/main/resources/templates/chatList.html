@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--/*@thymesVar id="chatRooms" type="com.logan.socialnetwork.model.ChatRooms"*/-->
+    <form method="GET" th:object="${chatRooms}" th:action="@{/list}">
+        <ul th:each="chat : ${chatRooms}">
+            <span th:text="${chat.chatRoomName}"></span>
+        </ul>
+    </form>
+</body>
+</html>

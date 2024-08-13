@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: socialNetwork
+  thymeleaf:
+    cache: false
+  datasource:
+    name: socialnetwork
+    username: postgres
+    password: rootroot
+    url: jdbc:postgresql://localhost:5432/socialnetwork
+    hikari:
+      driver-class-name: org.postgresql.Driver
+  sql:
+    init:
+      mode: always
+  data:
+    mongodb:
+      database: social_network
+server:
+  error:
+    include-exception: true
+    include-stacktrace: always

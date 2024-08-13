@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job-net</title>
+</head>
+<body>
+    <div class="background-cont">
+        <div class="reg-pad">
+            <h1 class="colored">Register</h1>
+            <p class="colored">
+                <a th:href="@{/login}">Already have an account? Click here to login.</a>
+            </p>
+            <form method="POST" th:action="@{/register}" id="registerForm" class="loginForm">
+                <label for="username" class="colored lb">User-login: </label>
+                <input type="text" name="username" class="log-label lb"/><br/>
+
+                <label for="email" class="colored lb">Email: </label>
+                <input type="email" name="email" class="log-label lb"/><br/>
+    
+                <label for="password" class="colored lb">Password: </label>
+                <input type="password" name="password" class="log-label lb"/><br/>
+
+                <input type="submit" value="Register" class="log-button"/>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
