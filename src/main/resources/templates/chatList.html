@@ -3,14 +3,23 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>WebSocket Chat Application</title>
+    <link rel="stylesheet" th:href="@{/css/chatRoom.css}" />
 </head>
 <body>
 <!--/*@thymesVar id="chatRooms" type="com.logan.socialnetwork.model.ChatRooms"*/-->
-    <form method="GET" th:object="${chatRooms}" th:action="@{/list}">
-        <ul th:each="chat : ${chatRooms}">
-            <span th:text="${chat.chatRoomName}"></span>
-        </ul>
-    </form>
+<div class="main-container">
+        <div class="chat-rooms-container">
+            <form method="POST" class="add-new" id="userlogin" th:action="@{/api/v1/chats/findTargetUser}">
+                <input type="text" name="userlogin" id="searchUser" placeholder="Type a message..." autocomplete="off" class="form-control"/>
+                <button type="submit" class="primary">Send</button>
+            </form>
+            <ul th:each="chat : ${chatRooms}">
+                <a th:href="@{/api/v1/chats/getRoom/{roomId}(roomId=${chat.chatRoomId})}">
+                    <p class="chat-room-name" th:text="${chat.chatRoomName}" th:data-crid="${chat.chatRoomId}" th:value="${chat.chatRoomId}"></p>
+                </a>
+            </ul>
+        </div>
+</div>
 </body>
 </html>

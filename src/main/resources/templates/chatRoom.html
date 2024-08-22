@@ -4,34 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <title>WebSocket Chat Application</title>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="/webjars/sockjs-client/1.0.2/sockjs.min.js"></script>
-    <script src="/webjars/stomp-websocket/2.3.3/stomp.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/chatRoom.css}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
-
-<div id="chat-page" class="hidden">
-    <div class="chat-container">
-        <div class="chat-header">
-            <h2>Spring WebSocket Chat Demo - By Alibou</h2>
-        </div>
-        <div class="connecting">
-            Connecting...
-        </div>
-        <ul id="messageArea">
-
-        </ul>
-        <form id="messageForm" name="messageForm">
-            <div class="form-group">
-                <div class="input-group clearfix">
-                    <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
-                    <button type="submit" class="primary">Send</button>
-                </div>
+    <!--/*@thymesVar id="chatRooms" type="com.logan.socialnetwork.model.ChatRooms"*/-->
+    <!--/*@thymesVar id="messageHandler" type="com.logan.socialnetwork.model.Messages"*/-->
+    <div class="main-container" th:data-cProfilePicture="${cProfile.profilePictureUrl}" th:data-tProfilePicture="${tProfile.profilePictureUrl}" th:data-cProfileLogin="${cProfile.userlogin}" th:data-tProfileLogin="${tProfile.userlogin}">
+        <div class="chat-container " id="chat-container">
+            <div class="connecting">
+                Connecting...
             </div>
-        </form>
+            <ul id="messageArea">
+                <li class="chat-message" th:each="message : ${messageHandler}" th:with="Profile=${cProfile.userlogin == message.sender}">
+                    <img th:src="${Profile} ? ${cProfile.profilePictureUrl} : ${tProfile.profilePictureUrl}" alt="U-Icon">
+                    <span th:text="${message.sender}"></span>
+                    <p th:text="${message.content}"></p>
+                </li>
+            </ul>
+            <form id="messageForm" name="messageForm">
+                <div class="form-group">
+                    <div class="input-group clearfix">
+                        <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
+                        <button type="submit" class="primary">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 <script src="/js/main.js"></script>

@@ -2,13 +2,24 @@ package com.logan.socialnetwork.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
-@Embeddable
 @Data
+@Entity
 @Table(name = "chat_members")
+@NoArgsConstructor
 public class ChatMembers {
-    private String username;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String userlogin;
     private String chatRoomId;
     private String type;
+
+    public ChatMembers(String userlogin, String chatRoomId, String type) {
+        this.userlogin = userlogin;
+        this.chatRoomId = chatRoomId;
+        this.type = type;
+    }
 }
