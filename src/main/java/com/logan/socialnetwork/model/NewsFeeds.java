@@ -1,14 +1,18 @@
 package com.logan.socialnetwork.model;
 
-import jakarta.persistence.Embeddable;
+import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.Date;
 
-@Embeddable
 @Data
+@Entity
 public class NewsFeeds {
+    @Id
+    private Long id;
     private Long profileId;
-    private Long contentId;
+    @ElementCollection
+    private ArrayList<Long> contentId;
     private Date addedAt = new Date();
 }

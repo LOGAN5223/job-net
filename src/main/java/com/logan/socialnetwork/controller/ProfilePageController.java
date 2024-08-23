@@ -1,7 +1,10 @@
 package com.logan.socialnetwork.controller;
 
+import com.logan.socialnetwork.model.ProfileContent;
 import com.logan.socialnetwork.service.ProfileMasterService;
 import lombok.Data;
+import lombok.NonNull;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -10,10 +13,16 @@ import org.springframework.web.servlet.ModelAndView;
 @SessionAttributes(value = "profileData")
 @Data
 public class ProfilePageController {
+    @NonNull
     ProfileMasterService profilePageService;
 
     @GetMapping(value = "/{username}")
-    public ModelAndView getProfile(@PathVariable String username, ModelAndView modelAndView){
-        return profilePageService.getProfile(username, modelAndView);
+    public ModelAndView getProfile(@PathVariable String username, ModelAndView modelAndView, Authentication authentication){
+        return profilePageService.getProfile(username, modelAndView, authentication);
+    }
+
+    @PostMapping("/post")
+    public ModelAndView postNewContent(ProfileContent profileContent, Authentication authentication){
+        return profilePageService.postNewContent(profileContent, authentication);
     }
 }

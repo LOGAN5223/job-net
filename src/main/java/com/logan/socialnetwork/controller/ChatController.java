@@ -11,23 +11,25 @@ import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @RestController
+@RequestMapping("/api/v1/chats")
 @AllArgsConstructor
 @Data
-@RequestMapping("/api/v1/chats")
+
 public class ChatController {
     private ChatMasterService chatMasterService;
 
     @GetMapping
-    public ModelAndView findAllChatRooms(Authentication authentication){
-        return chatMasterService.findAllChatRooms(authentication);
+    public ModelAndView findAllChatRooms(Authentication authentication, ModelAndView modelAndView, String errorDisplay){
+        return chatMasterService.findAllChatRooms(authentication, modelAndView, errorDisplay);
     }
 
     @PostMapping("/findTargetUser")
-    public ModelAndView createOrFindChatWithUser(String userlogin, Authentication authentication) {
-        return chatMasterService.createOrFindChatWithUser(userlogin, authentication);
+    public ModelAndView createOrFindChatWithUser(String target, Authentication authentication, RedirectAttributes redirectAttributes) {
+        return chatMasterService.createOrFindChatWithUser(target, authentication, redirectAttributes);
     }
 
     @GetMapping("/getRoom/{roomId}")

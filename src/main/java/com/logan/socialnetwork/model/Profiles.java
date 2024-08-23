@@ -1,6 +1,5 @@
 package com.logan.socialnetwork.model;
 
-import com.mongodb.lang.Nullable;
 import jakarta.persistence.Id;
 import lombok.Data;
 import lombok.Setter;

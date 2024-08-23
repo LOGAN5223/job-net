@@ -1,11 +1,14 @@
 package com.logan.socialnetwork.model;
 
-import jakarta.persistence.Embeddable;
+import jakarta.persistence.*;
 import lombok.Data;
 
-@Embeddable
+@Entity
 @Data
 public class ProfileSubscribers {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private Long profileLogin;
     private Long subscriberLogin;
 }

@@ -9,11 +9,22 @@
 <body>
 <!--/*@thymesVar id="profiles" type="package com.logan.socialnetwork.model.Profiles"*/-->
 <form method="GET" th:object="${profileData}">
-    <img th:src="*{profilePictureUrl}" alt="idi nahui">
+    <img th:src="*{profilePictureUrl}" alt="Icon">
     <p th:text="*{userName}"></p>
     <p th:text="*{sureName}"></p>
     <p th:text="*{biography}"></p>
     <p th:text="*{registrationDate}"></p>
+</form>
+<form method="POST" id="contentPostForm" th:if="${currentUser} == true" th:object="${newProfileContent}" th:action="@{/api/v1/profilePage/post}">
+    <div>TEST</div>
+    <label for="content">Write A new Post!</label>
+    <input type="text" id="content" name="content" th:field="*{content}">
+    <input type="submit" form="contentPostForm" value="POST!">
+</form>
+<form method="get" th:if="${profileContent} != null" th:object="${profileContent}">
+    <div th:each="contenter : ${profileContent}">
+        <p th:text="${contenter.content}"></p>
+    </div>
 </form>
 </body>
 </html>

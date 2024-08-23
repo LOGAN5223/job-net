@@ -5,20 +5,27 @@
     <meta charset="UTF-8">
     <title>WebSocket Chat Application</title>
     <link rel="stylesheet" th:href="@{/css/chatRoom.css}" />
+
 </head>
 <body>
 <!--/*@thymesVar id="chatRooms" type="com.logan.socialnetwork.model.ChatRooms"*/-->
 <div class="main-container">
         <div class="chat-rooms-container">
-            <form method="POST" class="add-new" id="userlogin" th:action="@{/api/v1/chats/findTargetUser}">
-                <input type="text" name="userlogin" id="searchUser" placeholder="Type a message..." autocomplete="off" class="form-control"/>
+            <form method="POST" class="add-new" id="target" th:action="@{/api/v1/chats/findTargetUser}">
+                <input type="text" name="target" id="searchUser" placeholder="Type a message..." autocomplete="off" class="form-control"/>
                 <button type="submit" class="primary">Send</button>
+
             </form>
-            <ul th:each="chat : ${chatRooms}">
-                <a th:href="@{/api/v1/chats/getRoom/{roomId}(roomId=${chat.chatRoomId})}">
-                    <p class="chat-room-name" th:text="${chat.chatRoomName}" th:data-crid="${chat.chatRoomId}" th:value="${chat.chatRoomId}"></p>
-                </a>
-            </ul>
+            <form method="get">
+                <div th:if="${errorDisplay} != null" th:object="${errorDisplay}">
+                    <p th:text="${errorDisplay}"></p>
+                </div>
+                <ul th:each="chat : ${chatRooms}">
+                    <a th:href="@{/api/v1/chats/getRoom/{roomId}(roomId=${chat.chatRoomId})}">
+                        <p class="chat-room-name" th:text="${chat.chatRoomName}" th:data-crid="${chat.chatRoomId}" th:value="${chat.chatRoomId}"></p>
+                    </a>
+                </ul>
+            </form>
         </div>
 </div>
 </body>

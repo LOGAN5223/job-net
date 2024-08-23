@@ -7,10 +7,6 @@ let connectingElement = document.querySelector('.connecting');
 let stompClient = null;
 let usersIcons  = new Map();
 let roomId = (new URL(window.location.href)).pathname.split('/')[5];
-let colors = [
-    '#2196F3', '#32c787', '#00BCD4', '#ff5652',
-    '#ffc107', '#ff85af', '#FF9800', '#39bbb0'
-];
 
 usersIcons.set(document.querySelector(".main-container").getAttribute("data-cProfileLogin"), document.querySelector(".main-container").getAttribute("data-cProfilePicture"));
 usersIcons.set(document.querySelector(".main-container").getAttribute("data-tProfileLogin"), document.querySelector(".main-container").getAttribute("data-tProfilePicture"));
