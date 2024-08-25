@@ -1,28 +1,43 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Job-net</title>
+    <link rel="stylesheet" th:href="@{/css/info.css}">
+
+    <link href="https://fonts.cdnfonts.com/css/iproton" rel="stylesheet">
+
 </head>
 <body>
-<div class="background-cont">
-    <div class="login-pad">
-        <h1 class="colored">Log in</h1>
-        <p class="colored">
-            <a th:href="@{/register}">New here? Click
-                here to register.</a>
-        </p>
-        <form method="POST" th:action="@{/login}" id="loginForm" class="loginForm">
-            <label for="userlogin" class="colored lb">User-login: </label>
-            <input type="text" name="username" id="userlogin" class="log-label lb" /><br/>
-            <label for="password" class="colored lb">Password: </label>
-            <input type="password" name="password" id="password" class="log-label lb" /><br/>
-            <input type="submit" value="Login" class="log-button"/>
-
-        </form>
+<div class="main-container">
+    <nav>Job-net</nav>
+    <div class="info-container">
+        <div class="info-pad">
+            <p class="some-text">Social network about work and connections</p>
+            <div class="img-info"></div>
+        </div>
+        <div class="login-pad">
+            <div class="white-square"></div>
+            <p>Log in</p>
+            <form method="POST" th:action="@{/login}" id="loginForm" class="loginForm">
+                <div class="form-element">
+                    <label for="userlogin" class="colored lb">User-login: </label>
+                    <input type="text" name="username" id="userlogin" class="log-label lb" /><br/>
+                </div>
+                <div class="form-element">
+                    <label for="password" class="colored lb">Password: </label>
+                    <input type="password" name="password" id="password" class="log-label lb" /><br/>
+                </div>
+                <div class="form-element">
+                    <input type="submit" value="Login" class="log-button"/>
+                </div>
+            </form>
+            <a class="register-link" th:href="@{/register}">Register</a>
+        </div>
     </div>
 </div>
+<script th:src="@{/js/info.js}"></script>
 </body>
 </html>

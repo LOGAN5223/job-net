@@ -8,15 +8,23 @@
 </head>
 <body>
 <!--/*@thymesVar id="profiles" type="package com.logan.socialnetwork.model.Profiles"*/-->
-<form method="GET" th:object="${profileData}">
+<form method="POST" th:object="${profileData}" th:action="@{/api/v1/profilePage/subscribe}">
     <img th:src="*{profilePictureUrl}" alt="Icon">
     <p th:text="*{userName}"></p>
     <p th:text="*{sureName}"></p>
     <p th:text="*{biography}"></p>
     <p th:text="*{registrationDate}"></p>
+    <p th:text="${subsAmount}"></p>
+    <div th:each="sub : ${subscribers}">
+        <p th:text="'Sub - ' + ${sub.subscriberLogin}"></p>
+    </div>
+    <p th:text="${subscriptionsAmount}"></p>
+    <div th:each="subed : ${subscriptions}">
+        <p th:text="'Subed - ' + ${subed.profileLogin}"></p>
+    </div>
+    <input type="submit" th:if="${currentUser} == false" th:value="${subscribed} == true ? 'unsubscribe' : 'subscribe'">
 </form>
 <form method="POST" id="contentPostForm" th:if="${currentUser} == true" th:object="${newProfileContent}" th:action="@{/api/v1/profilePage/post}">
-    <div>TEST</div>
     <label for="content">Write A new Post!</label>
     <input type="text" id="content" name="content" th:field="*{content}">
     <input type="submit" form="contentPostForm" value="POST!">

@@ -56,7 +56,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public ModelAndView registerForm(ModelAndView modelAndView) {
-        this.modelAndView = new ModelAndView();
+        this.modelAndView = modelAndView;
         modelAndView.setViewName("registration");
         return modelAndView;
     }

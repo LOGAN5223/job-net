@@ -1,6 +1,7 @@
 package com.logan.socialnetwork.controller;
 
 import com.logan.socialnetwork.model.ProfileContent;
+import com.logan.socialnetwork.model.ProfileSubscribers;
 import com.logan.socialnetwork.service.ProfileMasterService;
 import lombok.Data;
 import lombok.NonNull;
@@ -24,5 +25,10 @@ public class ProfilePageController {
     @PostMapping("/post")
     public ModelAndView postNewContent(ProfileContent profileContent, Authentication authentication){
         return profilePageService.postNewContent(profileContent, authentication);
+    }
+
+    @PostMapping("/subscribe")
+    public ModelAndView unSubscribeOnUser(Authentication authentication, ProfileSubscribers profileSubscribers){
+        return profilePageService.unSubscribeOnUser(authentication, profileSubscribers);
     }
 }

@@ -5,10 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Job-net</title>
+    <link rel="stylesheet" th:href="@{/css/info.css}">
+
+    <link href="https://fonts.cdnfonts.com/css/iproton" rel="stylesheet">
+
 </head>
 <body>
-    <p>Social network about work and connections</p>
-    <a th:href="@{/login}">To Login</a>
-    <a th:href="@{/register}">To Register</a>
+    <div class="main-container">
+        <nav>Job-net</nav>
+        <div class="info-container">
+            <div class="info-pad">
+                <p class="some-text">Social network about work and connections</p>
+                <div class="img-info"></div>
+            </div>
+            <div class="start-pad">
+                <div class="white-square"></div>
+                <p>Ready to Start?</p>
+                <a th:href="@{/login}">Login</a>
+                <a th:href="@{/register}">Register</a>
+            </div>
+        </div>
+    </div>
+<script th:src="@{/js/info.js}"></script>
 </body>
 </html>

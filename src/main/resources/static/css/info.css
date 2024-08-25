@@ -1,0 +1,158 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "iProton", sans-serif;
+  color: aliceblue;
+}
+
+nav {
+  background: #1a1919;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+}
+
+p {
+  margin-top: 30%;
+  border: dashed 2px #999899;
+  height: 100%;
+}
+
+a {
+  margin-top: 120%;
+  border: dashed 2px #999899;
+  height: 100%;
+  color: aliceblue;
+}
+
+form {
+  margin-top: 40%;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-rows: 40% 40% 20%;
+  grid-template-columns: 100%;
+}
+
+input {
+  border: dashed 2px #999899;
+  font-family: "iProton", sans-serif;
+  background: none;
+  color: aliceblue;
+  text-align: center;
+  font-size: 16px;
+}
+
+#registerForm {
+  grid-template-rows: 25% 25% 25% 10%;
+}
+
+#profileForm {
+  grid-template-rows: 25% 25% 25% 10%;
+}
+
+.log-button {
+  width: 82%;
+}
+
+.register-link {
+  margin-top: 80%;
+}
+
+.login-link {
+  margin-top: 32.5%;
+}
+
+.some-text {
+  padding: 0;
+  margin: 0;
+  border: unset;
+}
+
+.main-container {
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  background: #262626;
+  grid-template-columns: 100%;
+  grid-template-rows: 8% 92%;
+}
+
+.info-container {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  background: #262626;
+  grid-template-columns: 40% 20%;
+  grid-template-rows: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-pad {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 60%;
+  grid-template-rows: 5% 60%;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.img-info {
+  background: url("../images/2office.png");
+  background-size: 100% 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.start-pad {
+  width: 65%;
+  height: 70%;
+  border: dashed 2px #999899;
+  display: grid;
+  grid-template-columns: 80%;
+  grid-template-rows: 5% 5% 5%;
+  justify-content: center;
+  line-height: 30px;
+  text-align: center;
+  row-gap: 30px;
+}
+
+.white-square {
+  width: 13%;
+  height: 64.4%;
+  margin-left: 10px;
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  position: absolute;
+  pointer-events: none;
+}
+
+.login-pad {
+  width: 65%;
+  height: 70%;
+  border: dashed 2px #999899;
+  display: grid;
+  grid-template-columns: 80%;
+  grid-template-rows: 5% 40% 5%;
+  justify-content: center;
+  line-height: 30px;
+  text-align: center;
+  row-gap: 30px;
+}
+
+.register-pad {
+  width: 65%;
+  height: 70%;
+  border: dashed 2px #999899;
+  display: grid;
+  grid-template-columns: 80%;
+  grid-template-rows: 5% 60% 5%;
+  justify-content: center;
+  line-height: 30px;
+  text-align: center;
+  row-gap: 30px;
+}/*# sourceMappingURL=info.css.map */

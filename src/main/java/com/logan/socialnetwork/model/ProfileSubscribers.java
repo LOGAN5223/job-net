@@ -9,6 +9,6 @@ public class ProfileSubscribers {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long profileLogin;
-    private Long subscriberLogin;
+    private String profileLogin;
+    private String subscriberLogin;
 }
