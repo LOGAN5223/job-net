@@ -38,6 +38,7 @@ public class SecurityConfig {
 //                .csrf(AbstractHttpConfigurer::disable)
                 .formLogin(form -> form
                         .loginPage("/login")
+                        .defaultSuccessUrl("/api/v1/feed", false)
                         .permitAll())
                 .authorizeHttpRequests((authz) -> authz
                         .requestMatchers("/api/", "/api/**").hasRole("USER")

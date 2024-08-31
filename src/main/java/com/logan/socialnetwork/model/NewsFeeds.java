@@ -11,8 +11,8 @@ import java.util.Date;
 public class NewsFeeds {
     @Id
     private Long id;
-    private Long profileId;
+    private String userlogin;
     @ElementCollection
-    private ArrayList<Long> contentId;
+    private ArrayList<String> contentId;
     private Date addedAt = new Date();
 }

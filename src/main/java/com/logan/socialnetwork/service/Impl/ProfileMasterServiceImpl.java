@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Objects;
 
@@ -28,6 +29,8 @@ public class ProfileMasterServiceImpl implements ProfileMasterService {
     private ProfileContentRepository profileContentRepository;
     @NonNull
     private ProfileSubsRepository profileSubsRepository;
+    private SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+
 
     private ModelAndView modelAndView;
     private String targetedUserlogin;
@@ -57,11 +60,14 @@ public class ProfileMasterServiceImpl implements ProfileMasterService {
         modelAndView.addObject("profileContent", profileContent);
         modelAndView.addObject("newProfileContent", new ProfileContent());
         modelAndView.addObject("profileData", profileData);
+        modelAndView.addObject("regDate", formatter.format(profileData.getRegistrationDate()));
         modelAndView.addObject("currentUser", Objects.equals(profileData.getUserlogin(), authentication.getName()));
         modelAndView.addObject("subscribers", profileSubscribers);
         modelAndView.addObject("subscriptions", subscriptions);
         modelAndView.addObject("subsAmount", profileSubscribers.size());
         modelAndView.addObject("subscriptionsAmount", subscriptions.size());
+        modelAndView.addObject("cUserName", authentication.getName());
+        modelAndView.addObject("cUserIcon", profileRepository.findByUserlogin(authentication.getName()).getProfilePictureUrl());
         modelAndView.addObject("subscribed", subscribed);
 
         return modelAndView;

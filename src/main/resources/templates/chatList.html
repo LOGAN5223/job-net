@@ -3,25 +3,35 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>WebSocket Chat Application</title>
-    <link rel="stylesheet" th:href="@{/css/chatRoom.css}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job-net</title>
+    <link rel="stylesheet" th:href="@{/css/chatList.css}" />
+    <link href="https://fonts.cdnfonts.com/css/iproton" rel="stylesheet">
 
 </head>
 <body>
 <!--/*@thymesVar id="chatRooms" type="com.logan.socialnetwork.model.ChatRooms"*/-->
 <div class="main-container">
+        <nav>
+            <a class="profile-link" th:object="${profile}" th:href="@{/api/v1/profilePage/{profileId}(profileId=${profile.userlogin})}">
+                <img class="profile-icon" th:src="${profile.profilePictureUrl}">
+                <p class="profile-login" th:text="${profile.userlogin}"></p>
+            </a> 
+            <a class="title" th:href="@{/api/v1/feed}">Job-net</a>
+            <a class="chat-link" th:href="@{/api/v1/chats}">Chat List</a>
+        </nav>
         <div class="chat-rooms-container">
             <form method="POST" class="add-new" id="target" th:action="@{/api/v1/chats/findTargetUser}">
                 <input type="text" name="target" id="searchUser" placeholder="Type a message..." autocomplete="off" class="form-control"/>
-                <button type="submit" class="primary">Send</button>
+                <button type="submit" class="primary">Find</button>
 
             </form>
-            <form method="get">
+            <form method="get" class="chat-list">
                 <div th:if="${errorDisplay} != null" th:object="${errorDisplay}">
                     <p th:text="${errorDisplay}"></p>
                 </div>
                 <ul th:each="chat : ${chatRooms}">
-                    <a th:href="@{/api/v1/chats/getRoom/{roomId}(roomId=${chat.chatRoomId})}">
+                    <a class="room-link" th:href="@{/api/v1/chats/getRoom/{roomId}(roomId=${chat.chatRoomId})}">
                         <p class="chat-room-name" th:text="${chat.chatRoomName}" th:data-crid="${chat.chatRoomId}" th:value="${chat.chatRoomId}"></p>
                     </a>
                 </ul>

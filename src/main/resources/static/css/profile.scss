@@ -1,0 +1,189 @@
+body{
+      margin: 0;
+      padding: 0;
+      font-family: 'iProton', sans-serif;
+      color: aliceblue;
+      background: #262626;
+}
+
+nav{
+      background: #1a1919;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      font-size: 48px;
+      text-align: center;
+      position: fixed;
+}
+
+a{
+      width: 200px;
+      height: 100%;
+      text-decoration: none;
+      color: aliceblue;
+}
+
+#contentPostForm{
+      width: 60%;
+      height: 10%;
+      background: #1a1919;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px white solid;
+}
+
+.content-container{
+      width: 60%;
+      height: auto;
+      background: #1a1919;
+      margin-top: 0.5%;
+      margin-bottom: 1%;
+      border: 1px white solid;
+}
+
+.info-items{
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+}
+
+.title{
+      height: 70.24px;
+}
+
+.chat-link{
+      line-height: 70px;
+      font-size: 24px;
+}
+
+.text-intendent{
+      text-indent: 29%;
+}
+
+.profile-link{
+      width: 200px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+.profile-icon{
+      width: 30%;
+      height: 85%;
+      border-radius: 50px;
+      border: 2px white solid;
+}
+
+.profile-login{
+      margin-left: 10px;
+      font-size: 18px;
+}
+
+.first-container{
+      display: grid;
+      width: 100%;
+      height: 70vh;
+      background: #262626;
+      grid-template-columns: 100%;
+      grid-template-rows: 100%;
+      justify-items: center;
+      padding-top: 5%;
+}
+
+.second-container{
+      display: flex;
+      width: 100%;
+      height: auto;
+      background: #262626;
+      justify-content: center;
+}
+
+.profile-container{
+      display: flex;
+      flex-direction: column;
+      row-gap: 5%;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      background: #262626;
+
+}
+
+.profile-info{
+      width: 60%;
+      height: 80%;
+      background: #1a1919;
+      display: grid;
+      grid-template-columns: repeat(2, 18%);
+      grid-template-rows: 33% repeat(3, 8%) 18% 8%;
+      justify-content: center;
+      align-items: center;
+      border: 1px white solid;
+}
+
+.about-me{
+      width: 100%;
+      height: 100%;
+      
+}
+
+.profile-icon-holder{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid-column: span 2;
+}
+
+.abme{
+      height: 20%;
+      text-align: center;
+}
+
+.bio{
+      text-align: justify;
+      border: white 1px solid;
+      margin-left: 2.5%;
+      width: 97%;
+      height: 80%;
+}
+
+.icon-holder{
+      border: 2px white solid;
+      border-radius: 100px;
+      width: 28%;
+      height: 88%;
+}
+
+.reg-date{
+      grid-column: span 2;
+      text-align: center;
+}
+
+.about-me{
+      grid-column: span 2;
+}
+
+.name-forname{
+      width: 100%;
+      height: 100%;
+}
+
+.subs-info{
+      width: 100%;
+      height: 100%;
+}
+
+.button-holder{
+      width: 100%;
+      height: 100%;
+      grid-column: span 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}

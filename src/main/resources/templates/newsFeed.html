@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job-net</title>
+    <link rel="stylesheet" th:href="@{/css/feed.css}">
+
+    <link href="https://fonts.cdnfonts.com/css/iproton" rel="stylesheet">
+
 </head>
 <body>
-
+    <div class="main-container">
+        <nav>
+            <a class="profile-link" th:object="${profile}" th:href="@{/api/v1/profilePage/{profileId}(profileId=${profile.userlogin})}">
+                <img class="profile-icon" th:src="${profile.profilePictureUrl}">
+                <p class="profile-login" th:text="${profile.userlogin}"></p>
+            </a>            
+            <a class="title" th:href="@{/api/v1/feed}">Job-net</a>
+            <a class="chat-link" th:href="@{/api/v1/chats}">Chat List</a>
+        </nav>
+        <div class="feed">
+            <div class="calendar"></div>
+            <div class="post-container">
+                <form></form>
+            </div>
+            <div class="weather"></div>
+        </div>
+    </div>
 </body>
 </html>

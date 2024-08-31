@@ -44,6 +44,7 @@ public class ChatMasterServiceImpl implements ChatMasterService {
         List<ChatRooms> userChatRooms =
                 chatMembersRepository.findAllByUserlogin(authentication.getName()).stream().map(x -> chatRoomsRepository.findByChatRoomId(x.getChatRoomId())).collect(Collectors.toList());
         modelAndView.setViewName("chatList");
+        modelAndView.addObject("profile", profileRepository.findByUserlogin(authentication.getName()));
         modelAndView.addObject("chatRooms", userChatRooms);
         modelAndView.addObject("errorDisplay", errorDisplay);
         return modelAndView;

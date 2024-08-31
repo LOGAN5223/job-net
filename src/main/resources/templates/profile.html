@@ -5,34 +5,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Job-net</title>
+    <link rel="stylesheet" th:href="@{/css/profile.css}" />
+    <link href="https://fonts.cdnfonts.com/css/iproton" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/chatList.css" />
+
 </head>
 <body>
 <!--/*@thymesVar id="profiles" type="package com.logan.socialnetwork.model.Profiles"*/-->
-<form method="POST" th:object="${profileData}" th:action="@{/api/v1/profilePage/subscribe}">
-    <img th:src="*{profilePictureUrl}" alt="Icon">
-    <p th:text="*{userName}"></p>
-    <p th:text="*{sureName}"></p>
-    <p th:text="*{biography}"></p>
-    <p th:text="*{registrationDate}"></p>
-    <p th:text="${subsAmount}"></p>
-    <div th:each="sub : ${subscribers}">
-        <p th:text="'Sub - ' + ${sub.subscriberLogin}"></p>
+<nav>
+    <a class="profile-link" th:href="@{/api/v1/profilePage/{profileId}(profileId=${cUserName})}">
+        <img class="profile-icon" th:src="${cUserIcon}">
+        <p class="profile-login" th:text="${cUserName}"></p>
+    </a> 
+    <a class="title" th:href="@{/api/v1/feed}">Job-net</a>
+    <a class="chat-link" th:href="@{/api/v1/chats}">Chat List</a>
+</nav>
+<div class="first-container">
+    <div class="profile-container">
+        <form method="POST" class="profile-info" th:object="${profileData}" th:action="@{/api/v1/profilePage/subscribe}">
+            <div class="profile-icon-holder">
+                <img class="icon-holder" th:src="*{profilePictureUrl}" alt="Icon">
+            </div>
+            <p class="info-items text-intendent" th:text="*{'Name: ' + userName}"></p>
+            <p class="info-items text-intendent" th:text="*{'Forname: ' + sureName}"></p>
+            <p class="info-items text-intendent" th:text="${'Subs: ' + subsAmount}"></p>
+            <p class="info-items text-intendent" th:text="${'Subs-ons: ' + subscriptionsAmount}"></p>
+
+            <p class="info-items reg-date" th:text="${'Reg Date: ' + regDate}"></p>
+            <div class="about-me">
+                <p class="info-items abme">About Me:</p>
+                <p class="info-items bio" th:text="*{biography}"></p>
+            </div>
+            <!-- <div th:each="sub : ${subscribers}">
+                <p th:text="'Sub - ' + ${sub.subscriberLogin}"></p>
+            </div> -->
+            <!-- <div th:each="subed : ${subscriptions}">
+                <p th:text="'Subed - ' + ${subed.profileLogin}"></p>
+            </div> -->
+            <div class="button-holder">
+                <input type="submit" th:if="${currentUser} == false" th:value="${subscribed} == true ? 'unsubscribe' : 'subscribe'">
+            </div>
+        </form>
+        <form method="POST" id="contentPostForm" th:if="${currentUser} == true" th:object="${newProfileContent}" th:action="@{/api/v1/profilePage/post}">
+            <label for="content">Write A new Post!</label>
+            <input type="text" id="content" name="content" th:field="*{content}">
+            <input type="submit" form="contentPostForm" value="POST!">
+        </form>
     </div>
-    <p th:text="${subscriptionsAmount}"></p>
-    <div th:each="subed : ${subscriptions}">
-        <p th:text="'Subed - ' + ${subed.profileLogin}"></p>
-    </div>
-    <input type="submit" th:if="${currentUser} == false" th:value="${subscribed} == true ? 'unsubscribe' : 'subscribe'">
-</form>
-<form method="POST" id="contentPostForm" th:if="${currentUser} == true" th:object="${newProfileContent}" th:action="@{/api/v1/profilePage/post}">
-    <label for="content">Write A new Post!</label>
-    <input type="text" id="content" name="content" th:field="*{content}">
-    <input type="submit" form="contentPostForm" value="POST!">
-</form>
-<form method="get" th:if="${profileContent} != null" th:object="${profileContent}">
-    <div th:each="contenter : ${profileContent}">
-        <p th:text="${contenter.content}"></p>
-    </div>
-</form>
+</div>
+<div class="second-container">
+      <form method="GET" class="content-container" th:if="${#lists.size(profileContent)} != 0"  th:object="${profileContent}">
+        <div th:each="contenter : ${profileContent}">
+            <div th:text="${contenter.getDate()}"></div>
+            <div th:text="${contenter.content}"></div>
+        </div>
+    </form>
+</div>
 </body>
 </html>
