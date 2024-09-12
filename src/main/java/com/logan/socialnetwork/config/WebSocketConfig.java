@@ -6,6 +6,10 @@ import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
+import com.logan.socialnetwork.model.Messages;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import java.util.List;
 
 @Configuration
 @EnableWebSocketMessageBroker
