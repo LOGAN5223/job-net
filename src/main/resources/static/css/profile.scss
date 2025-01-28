@@ -5,14 +5,7 @@ body{
 }
 // refactor!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 nav{
-      background: #1a1919;
-      width: 100%;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      font-size: 48px;
-      text-align: center;
-      position: fixed;
+      @include default-nav;
 }
 
 a{
@@ -23,12 +16,10 @@ a{
 }
 
 #contentPostForm{
+      @include flex-all-center;
       width: 60%;
       height: 10%;
       background: #1a1919;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       border: 1px white solid;
 }
 
@@ -42,8 +33,7 @@ a{
 }
 
 .info-items{
-      width: 100%;
-      height: 100%;
+      @include width-and-height-max;
       padding: 0;
       margin: 0;
 }
@@ -64,9 +54,7 @@ a{
 .profile-link{
       width: 200px;
       height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include flex-all-center;
 }
 
 .profile-icon{
@@ -101,40 +89,32 @@ a{
 }
 
 .profile-container{
+      @include width-and-height-max;
       display: flex;
       flex-direction: column;
       row-gap: 5%;
       align-items: center;
-      width: 100%;
-      height: 100%;
       background: #262626;
 
 }
 
 .profile-info{
+      @include grid-all-center;
       width: 60%;
       height: 80%;
       background: #1a1919;
-      display: grid;
       grid-template-columns: repeat(2, 18%);
       grid-template-rows: 33% repeat(3, 8%) 18% 8%;
-      justify-content: center;
-      align-items: center;
       border: 1px white solid;
 }
 
 .about-me{
-      width: 100%;
-      height: 100%;
-      
+      @include width-and-height-max;
 }
 
 .profile-icon-holder{
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include width-and-height-max;
+      @include flex-all-center;
       grid-column: span 2;
 }
 
@@ -168,20 +148,15 @@ a{
 }
 
 .name-forname{
-      width: 100%;
-      height: 100%;
+      @include width-and-height-max;
 }
 
 .subs-info{
-      width: 100%;
-      height: 100%;
+      @include width-and-height-max;
 }
 
 .button-holder{
-      width: 100%;
-      height: 100%;
+      @include width-and-height-max;
+      @include flex-all-center;
       grid-column: span 2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
 }

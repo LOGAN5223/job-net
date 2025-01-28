@@ -11,15 +11,16 @@
 </head>
 <body>
 <!--/*@thymesVar id="chatRooms" type="com.logan.socialnetwork.model.ChatRooms"*/-->
+<nav>
+    <a class="profile-link" th:object="${profile}" th:href="@{/api/v1/profilePage/{profileId}(profileId=${profile.userlogin})}">
+        <img class="profile-icon" th:src="${profile.profilePictureUrl}">
+        <p class="profile-login" th:text="${profile.userlogin}"></p>
+    </a> 
+    <a class="title" th:href="@{/api/v1/feed}">Job-net</a>
+    <a class="chat-link" th:href="@{/api/v1/chats}">Chat List</a>
+</nav>
 <div class="main-container">
-        <nav>
-            <a class="profile-link" th:object="${profile}" th:href="@{/api/v1/profilePage/{profileId}(profileId=${profile.userlogin})}">
-                <img class="profile-icon" th:src="${profile.profilePictureUrl}">
-                <p class="profile-login" th:text="${profile.userlogin}"></p>
-            </a> 
-            <a class="title" th:href="@{/api/v1/feed}">Job-net</a>
-            <a class="chat-link" th:href="@{/api/v1/chats}">Chat List</a>
-        </nav>
+        
         <div class="chat-rooms-container">
             <form method="POST" class="add-new" id="target" th:action="@{/api/v1/chats/findTargetUser}">
                 <input type="text" name="target" id="searchUser" placeholder="Type a message..." autocomplete="off" class="form-control"/>

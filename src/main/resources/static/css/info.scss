@@ -6,9 +6,7 @@ body{
 
 nav{
       background: #1a1919;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include flex-all-center;
       font-size: 48px;
 }
 
@@ -26,10 +24,9 @@ a{
 }
 
 form{
+      @include width-and-height-max;
       margin-top: 40%;
       display: grid;
-      width: 100%;
-      height: 100%;
       grid-template-rows: 40% 40% 20%;
       grid-template-columns: 100%;
 }
@@ -81,8 +78,7 @@ input{
 
 .info-container{
       display: grid;
-      width: 100%;
-      height: 100%;
+      @include width-and-height-max;
       background: #262626;
       grid-template-columns: 40% 20%;
       grid-template-rows: 100%;
@@ -92,8 +88,7 @@ input{
 
 .info-pad{
       display: grid;
-      width: 100%;
-      height: 100%;
+      @include width-and-height-max;
       grid-template-columns: 60%;
       grid-template-rows: 5% 60%;
       justify-content: center;
@@ -104,8 +99,7 @@ input{
 .img-info{
       background: url("../images/2office.png");
       background-size: 100% 100%;
-      width: 100%;
-      height: 100%;
+      @include width-and-height-max;
 }
 
 .start-pad{

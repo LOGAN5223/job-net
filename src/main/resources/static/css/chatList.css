@@ -25,7 +25,6 @@ a {
 nav {
   background: #1a1919;
   width: 100%;
-  height: 70px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -63,14 +62,14 @@ nav {
 }
 
 .main-container {
-  width: 100%;
-  height: 100vh;
   display: grid;
+  width: 100%;
+  height: 70vh;
   grid-template-columns: 100%;
-  grid-template-rows: 8% 92%;
-  justify-items: center;
-  align-items: center;
+  grid-template-rows: 100%;
   background: #262626;
+  justify-items: center;
+  padding-top: 5%;
 }
 
 .chat-rooms-container {

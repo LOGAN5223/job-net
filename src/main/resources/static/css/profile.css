@@ -14,7 +14,6 @@ nav {
   align-items: center;
   font-size: 48px;
   text-align: center;
-  position: fixed;
 }
 
 a {
@@ -25,12 +24,12 @@ a {
 }
 
 #contentPostForm {
-  width: 60%;
-  height: 10%;
-  background: #1a1919;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 60%;
+  height: 10%;
+  background: #1a1919;
   border: 1px white solid;
 }
 
@@ -103,24 +102,24 @@ a {
 }
 
 .profile-container {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   row-gap: 5%;
   align-items: center;
-  width: 100%;
-  height: 100%;
   background: #262626;
 }
 
 .profile-info {
+  display: grid;
+  justify-content: center;
+  align-items: center;
   width: 60%;
   height: 80%;
   background: #1a1919;
-  display: grid;
   grid-template-columns: repeat(2, 18%);
   grid-template-rows: 33% repeat(3, 8%) 18% 8%;
-  justify-content: center;
-  align-items: center;
   border: 1px white solid;
 }
 
@@ -180,8 +179,8 @@ a {
 .button-holder {
   width: 100%;
   height: 100%;
-  grid-column: span 2;
   display: flex;
   justify-content: center;
   align-items: center;
+  grid-column: span 2;
 }/*# sourceMappingURL=profile.css.map */

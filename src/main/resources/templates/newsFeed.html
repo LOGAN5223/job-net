@@ -11,15 +11,16 @@
 
 </head>
 <body>
+    <nav>
+        <a class="profile-link" th:object="${profile}" th:href="@{/api/v1/profilePage/{profileId}(profileId=${profile.userlogin})}">
+            <img class="profile-icon" th:src="${profile.profilePictureUrl}">
+            <p class="profile-login" th:text="${profile.userlogin}"></p>
+        </a>            
+        <a class="title" th:href="@{/api/v1/feed}">Job-net</a>
+        <a class="chat-link" th:href="@{/api/v1/chats}">Chat List</a>
+    </nav>
     <div class="main-container">
-        <nav>
-            <a class="profile-link" th:object="${profile}" th:href="@{/api/v1/profilePage/{profileId}(profileId=${profile.userlogin})}">
-                <img class="profile-icon" th:src="${profile.profilePictureUrl}">
-                <p class="profile-login" th:text="${profile.userlogin}"></p>
-            </a>            
-            <a class="title" th:href="@{/api/v1/feed}">Job-net</a>
-            <a class="chat-link" th:href="@{/api/v1/chats}">Chat List</a>
-        </nav>
+        
         <div class="feed">
             <div class="calendar"></div>
             <div class="post-container">

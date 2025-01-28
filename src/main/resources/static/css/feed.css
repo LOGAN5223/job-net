@@ -19,11 +19,12 @@ nav {
 .main-container {
   display: grid;
   width: 100%;
-  height: 100vh;
+  height: 70vh;
   background: #262626;
   grid-template-columns: 100%;
-  grid-template-rows: 8% 92%;
+  grid-template-rows: 100%;
   justify-items: center;
+  padding-top: 5%;
 }
 
 a {
