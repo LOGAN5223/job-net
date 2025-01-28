@@ -1,10 +1,9 @@
 package com.logan.socialnetwork.model;
 
-import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,10 +12,12 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
 @NoArgsConstructor(force = true)
 public class Users implements UserDetails {
-    private static final Long serialVersionUID = 1L;
+    private static final Long serialVersionUID = 2L;
 
     @Id
     @Column(name = "userlogin")
@@ -27,17 +28,6 @@ public class Users implements UserDetails {
     private String role;
 
 //    private List<ChatRooms> chatRooms;
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public Users(String username, String password, String email, String role) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.role = role;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities(){
@@ -63,4 +53,5 @@ public class Users implements UserDetails {
     public boolean isEnabled(){
         return true;
     }
+
 }

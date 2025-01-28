@@ -3,7 +3,6 @@ package com.logan.socialnetwork.controller;
 import com.logan.socialnetwork.model.Messages;
 import com.logan.socialnetwork.service.ChatMasterService;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -17,8 +16,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RestController
 @RequestMapping("/api/v1/chats")
 @AllArgsConstructor
-@Data
-
 public class ChatController {
     private ChatMasterService chatMasterService;
 

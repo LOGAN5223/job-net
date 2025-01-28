@@ -2,7 +2,6 @@ package com.logan.socialnetwork.config;
 
 import com.logan.socialnetwork.model.Messages;
 import com.logan.socialnetwork.model.Users;
-import com.logan.socialnetwork.security.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
@@ -17,7 +16,6 @@ import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 public class WebSocketEventListener {
 
     private final SimpMessageSendingOperations messageSendingOperations;
-    private final UserRepository userRepository;
 
     @EventListener
     public void handleWebSocketDisconnectListener(

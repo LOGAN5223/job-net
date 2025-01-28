@@ -1,0 +1,17 @@
+@mixin default-body{
+      margin: 0;
+      padding: 0;
+      font-family: 'iProton', sans-serif;
+      color: aliceblue;
+      background: #262626;
+}
+
+@mixin default-nav{
+      background: #1a1919;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      font-size: 48px;
+      text-align: center;
+}

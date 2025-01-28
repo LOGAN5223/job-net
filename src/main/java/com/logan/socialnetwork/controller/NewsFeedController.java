@@ -1,31 +1,22 @@
 package com.logan.socialnetwork.controller;
 
-import com.logan.socialnetwork.model.NewsFeeds;
-import com.logan.socialnetwork.model.ProfileContent;
 import com.logan.socialnetwork.model.Profiles;
 import com.logan.socialnetwork.repository.NewsFeedRepository;
 import com.logan.socialnetwork.repository.ProfileContentRepository;
 import com.logan.socialnetwork.repository.ProfileRepository;
-import lombok.Data;
-import lombok.NonNull;
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @RestController
 @RequestMapping("/api/v1/feed")
-@Data
+@AllArgsConstructor
 public class NewsFeedController {
-    @NonNull
     private NewsFeedRepository newsFeedRepository;
-    @NonNull
     private ProfileContentRepository profileContentRepository;
-    @NonNull
     private ProfileRepository profileRepository;
 
 

@@ -1,10 +1,8 @@
 package com.logan.socialnetwork.controller;
 
 import com.logan.socialnetwork.model.ProfileContent;
-import com.logan.socialnetwork.model.ProfileSubscribers;
 import com.logan.socialnetwork.service.ProfileMasterService;
-import lombok.Data;
-import lombok.NonNull;
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,10 +10,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 @RequestMapping("/api/v1/profilePage")
 @SessionAttributes(value = "profileData")
-@Data
+@AllArgsConstructor
 public class ProfilePageController {
-    @NonNull
-    ProfileMasterService profilePageService;
+    private ProfileMasterService profilePageService;
 
     @GetMapping(value = "/{username}")
     public ModelAndView getProfile(@PathVariable String username, ModelAndView modelAndView, Authentication authentication){
@@ -27,8 +24,8 @@ public class ProfilePageController {
         return profilePageService.postNewContent(profileContent, authentication);
     }
 
-    @PostMapping("/subscribe")
-    public ModelAndView unSubscribeOnUser(Authentication authentication, ProfileSubscribers profileSubscribers){
-        return profilePageService.unSubscribeOnUser(authentication, profileSubscribers);
+    @PostMapping("/subscribe/{username}")
+    public ModelAndView unSubscribeOnUser(@PathVariable String username, Authentication authentication){
+        return profilePageService.unSubscribeOnUser(username, authentication);
     }
 }

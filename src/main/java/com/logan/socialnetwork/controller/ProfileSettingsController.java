@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 @SessionAttributes(value = "profiles")
 @AllArgsConstructor
 public class ProfileSettingsController {
-    ProfileMasterService profileSettingsService;
+    private ProfileMasterService profileSettingsService;
     @PostMapping
     public ModelAndView saveProfile(@Valid Profiles profiles, ModelAndView modelAndView){
         return profileSettingsService.saveProfile(profiles, modelAndView);

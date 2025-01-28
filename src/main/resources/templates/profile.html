@@ -22,11 +22,11 @@
 </nav>
 <div class="first-container">
     <div class="profile-container">
-        <form method="POST" class="profile-info" th:object="${profileData}" th:action="@{/api/v1/profilePage/subscribe}">
+        <form method="POST" class="profile-info" th:object="${profileData}" th:action="@{/api/v1/profilePage/subscribe/{profileId}(profileId=${profileData.userlogin})}">
             <div class="profile-icon-holder">
                 <img class="icon-holder" th:src="*{profilePictureUrl}" alt="Icon">
             </div>
-            <p class="info-items text-intendent" th:text="*{'Name: ' + userName}"></p>
+            <p class="info-items text-intendent" th:text="*{'Name: ' + userName}"></p>x
             <p class="info-items text-intendent" th:text="*{'Forname: ' + sureName}"></p>
             <p class="info-items text-intendent" th:text="${'Subs: ' + subsAmount}"></p>
             <p class="info-items text-intendent" th:text="${'Subs-ons: ' + subscriptionsAmount}"></p>
