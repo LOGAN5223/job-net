@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -44,12 +45,11 @@ public class ChatMasterServiceImpl implements ChatMasterService {
         return modelAndView;
     }
 
-    //TODO need optional, rewrite null conditions
     public ModelAndView createOrFindChatWithUser(String targetUser, Authentication authentication, RedirectAttributes redirectAttributes) {
         ChatRooms chatRooms = chatRoomsRepository.findFirstByChatRoomIdOrChatRoomId(
                 (targetUser + "-" + authentication.getName()),
                 (authentication.getName() + "-" + targetUser));
-        if (chatRooms == null && userRepository.findByUsername(targetUser) != null) {
+        if (Optional.ofNullable(chatRooms).isEmpty() && Optional.ofNullable(userRepository.findByUsername(targetUser)).isPresent()) {
 
             chatRooms = new ChatRooms();
             chatRooms.setChatRoomName(targetUser + "-" + authentication.getName());
@@ -60,9 +60,9 @@ public class ChatMasterServiceImpl implements ChatMasterService {
             chatMembersRepository.save(new ChatMembers(authentication.getName(), targetUser + "-" + authentication.getName(), "CHAT"));
 
             return new ModelAndView("redirect:/api/v1/chats/getRoom/" + chatRooms.getChatRoomId());
-        } else if (chatRooms != null) {
+        } else if (Optional.ofNullable(chatRooms).isPresent()) {
             return new ModelAndView("redirect:/api/v1/chats/getRoom/" + chatRooms.getChatRoomId());
-        } else if (userRepository.findByUsername(targetUser) == null) {
+        } else if (Optional.ofNullable( userRepository.findByUsername(targetUser)).isEmpty()) {
             redirectAttributes.addAttribute("errorDisplay", "User doesn't exist!");
 
             ModelAndView modelAndView = new ModelAndView();
@@ -107,10 +107,6 @@ public class ChatMasterServiceImpl implements ChatMasterService {
         return chatMessage;
     }
 
-    /*TODO
-        - Add byte code conversation
-        - Maybe find some more ways to optimize storing data
-     */
     public Messages sendMessage(Messages chatMessage, String roomId, Authentication authentication){
         chatMessage.setSender(authentication.getName());
         chatMessage.setChatRoomId(roomId);
